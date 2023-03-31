@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head></head>
+<body>
+    
+    <button id="ajaxButton" type="button">Faire une requête XHR</button>
+    <h1 id="hideDiv"></h1>
+
+    <script>
+        
+        document.getElementById("ajaxButton").addEventListener('click', makeRequest);
+        
+        function makeRequest() {
+            let div = document.getElementById('hideDiv');
+            
+            fetch('data.html')
+            
+            .then(function(response){
+                
+                return response.text();
+                
+            })
+            
+            .then(function(data){
+                
+                div.textContent = data;
+                div.style.color = "red";
+                div.style.fontSize = "250px"; 
+                div.style.fontFamily = "Impact";               
+            })
+            
+        }
+        
+    </script>
+</body>
